@@ -12,8 +12,13 @@ export interface Branch {
   color: string
 }
 
+export type Head =
+  | { type: 'branch'; name: string }
+  | { type: 'commit'; id: string }
+
 export interface GitState {
   commits: Commit[]
   branches: Branch[]
-  head: string
+  head: Head
+  log: string[]
 }
